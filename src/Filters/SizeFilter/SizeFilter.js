@@ -1,21 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { shoeSizes } from "../../dummyBackend/shoe";
+import { useMultiSelect } from "../../utils/CustomHook";
 import classes from "./SizeFilter.module.css";
 
 export const SizeFilter = ({ name, currentValues = [], onChange }) => {
-  const onClick = useCallback(
-    (size) => {
-      let newValues = currentValues;
-      if (currentValues.includes(size)) {
-        newValues = newValues.filter((val) => val !== size);
-      } else {
-        newValues.push(size);
-      }
-
-      onChange({ name, value: newValues });
-    },
-    [name, currentValues, onChange]
-  );
+  const onClick = useMultiSelect({ name, currentValues, onChange });
 
   const getClasses = (size) => {
     const classNames = [classes.item];
