@@ -1,4 +1,5 @@
 import faker from "faker";
+import { getRandomNumber } from "../utils/helpers";
 
 export const shoesTypes = [
   "Flip Flops",
@@ -14,10 +15,19 @@ for (let i = 35; i <= 49; i++) {
 }
 
 const shoes = [];
+const images = [
+  "https://m.media-amazon.com/images/I/61utX8kBDlL._UL1100_.jpg",
+  "https://i.pinimg.com/originals/1e/55/bd/1e55bdc1278d253fd677a8e2b5aa169c.jpg",
+  "https://pyxis.nymag.com/v1/imgs/a98/d0a/ad37aae9d281b562d1afe26fdc8a28cbd6.jpg",
+  "https://cdn.luxe.digital/media/2021/06/18093702/most-comfortable-men-sneakers-adidas-ultraboost-21-review-luxe-digital%402x.jpg",
+];
+const COLORS = ["red", "pink", "cyan", "grey", "bisque"];
 
-for (let i = 0; i < 500; i++) {
-  const type = shoesTypes[Math.floor(Math.random() * 4)];
-  const size = shoeSizes[Math.floor(Math.random() * shoeSizes.length)];
+for (let i = 0; i < 250; i++) {
+  const type = shoesTypes[getRandomNumber(shoesTypes.length)];
+  const size = shoeSizes[getRandomNumber(shoeSizes.length)];
+  const image = images[getRandomNumber(images.length)];
+  const color = COLORS[getRandomNumber(COLORS.length)];
 
   shoes.push({
     id: i + 1,
@@ -26,9 +36,8 @@ for (let i = 0; i < 500; i++) {
     type,
     price: parseInt(faker.commerce.price(100, 10000, 0)),
     size,
-    color: faker.commerce.color(),
-    imageUrl:
-      "https://i.pinimg.com/originals/1e/55/bd/1e55bdc1278d253fd677a8e2b5aa169c.jpg",
+    color: color,
+    imageUrl: image,
   });
 }
 
