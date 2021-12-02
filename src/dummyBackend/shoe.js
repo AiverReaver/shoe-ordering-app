@@ -9,7 +9,7 @@ export const shoesTypes = [
 
 export const shoeSizes = [];
 
-for (let i = 39; i <= 49; i++) {
+for (let i = 35; i <= 49; i++) {
   shoeSizes.push(i);
 }
 
@@ -17,7 +17,7 @@ const shoes = [];
 
 for (let i = 0; i < 500; i++) {
   const type = shoesTypes[Math.floor(Math.random() * 4)];
-  const size = shoeSizes[Math.floor(Math.random() * 10)];
+  const size = shoeSizes[Math.floor(Math.random() * shoeSizes.length)];
 
   shoes.push({
     id: i + 1,
@@ -35,12 +35,15 @@ for (let i = 0; i < 500; i++) {
 const DEFAULT_FILTERS = {
   priceMin: 1,
   priceMax: Number.POSITIVE_INFINITY,
-  size: null,
+  sizes: [],
   type: null,
 };
 
 export const getShoes = (filters = {}) => {
-  const { priceMin, priceMax, size, type } = { ...DEFAULT_FILTERS, ...filters };
+  const { priceMin, priceMax, sizes, type } = {
+    ...DEFAULT_FILTERS,
+    ...filters,
+  };
 
   let priceFilter = true,
     sizeFilter = true,
@@ -48,8 +51,8 @@ export const getShoes = (filters = {}) => {
 
   const filtershoes = shoes.filter((shoe) => {
     priceFilter = shoe.price > priceMin && shoe.price < priceMax;
-    if (size) {
-      sizeFilter = shoe.size === size;
+    if (sizes.length > 0) {
+      sizeFilter = sizes.includes(shoe.size);
     }
     if (type) {
       typeFilter = shoe.type === type;
