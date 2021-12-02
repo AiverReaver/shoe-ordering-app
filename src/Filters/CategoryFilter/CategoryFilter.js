@@ -19,7 +19,7 @@ export const CategoryFilter = ({ name, currentValues = [], onChange }) => {
               value={type}
               onChange={() => onClick(type)}
             />
-            <label for={type}>{type} </label>
+            <label htmlFor={type}>{type} </label>
             <br />
           </div>
         );
