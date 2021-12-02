@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { getShoes } from "./dummyBackend/shoe";
+import { List } from "./shoes/List";
 
 function App() {
   const [shoes, setShoes] = useState([]);
@@ -11,24 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      {shoes.map((s) => (
-        <p key={s.id}>{s.name}</p>
-      ))}
-
-      <button
-        onClick={() => {
-          setShoes(
-            getShoes({
-              size: 40,
-              priceMin: 100,
-              priceMax: 6000,
-              type: "Flip Flops",
-            })
-          );
-        }}
-      >
-        get
-      </button>
+      <List items={shoes} />
     </div>
   );
 }

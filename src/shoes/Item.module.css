@@ -1,0 +1,27 @@
+.card {
+    border: 1px solid  #ebe6e6;
+    border-radius: 10px;
+    width: 300px;
+    padding: 30px 40px;
+    margin: 15px 20px;
+    position: relative;
+}
+
+.textContainer {
+    text-align: left;
+}
+
+.grey {
+    color: #b2b0b0  ;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.colorBar {
+    position: absolute;
+    height: 35px;
+    top: 35px;
+    left: -4px;
+}

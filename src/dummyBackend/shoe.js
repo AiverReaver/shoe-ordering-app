@@ -26,7 +26,9 @@ for (let i = 0; i < 500; i++) {
     type,
     price: parseInt(faker.commerce.price(100, 10000, 0)),
     size,
-    imageUrl: faker.image.sports(),
+    color: faker.commerce.color(),
+    imageUrl:
+      "https://i.pinimg.com/originals/1e/55/bd/1e55bdc1278d253fd677a8e2b5aa169c.jpg",
   });
 }
 
