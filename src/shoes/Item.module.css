@@ -1,27 +1,36 @@
 .card {
-    border: 1px solid  #ebe6e6;
-    border-radius: 10px;
-    width: 300px;
-    padding: 30px 40px;
-    margin: 15px 20px;
-    position: relative;
+  border: 1px solid #ebe6e6;
+  border-radius: 10px;
+  width: 300px;
+  padding: 30px 40px;
+  margin: 15px 20px;
+  position: relative;
 }
 
 .textContainer {
-    text-align: left;
+  text-align: left;
 }
 
 .grey {
-    color: #b2b0b0  ;
+  color: #b2b0b0;
 }
 
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .colorBar {
-    position: absolute;
-    height: 35px;
-    top: 35px;
-    left: -4px;
+  position: absolute;
+  height: 35px;
+  top: 35px;
+  left: -4px;
+}
+
+.imageContainer {
+  margin: 10px 5px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

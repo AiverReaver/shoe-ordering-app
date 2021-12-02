@@ -15,7 +15,9 @@ export const Item = ({ name, company, url, color, price }) => {
         <div className={classes.grey}>{company}</div>
         <div className={classes.bold}>{name}</div>
       </div>
-      <img src={url} alt={name} width="200px" />
+      <div className={classes.imageContainer}>
+        <img src={url} alt={name} width="200" />
+      </div>
       <div className={classes.textContainer}>
         <div className={classes.grey}>Price</div>
         <div className={classes.bold}>$ {price}</div>
