@@ -4,10 +4,16 @@ import { getShoes } from "./dummyBackend/shoe";
 import { List } from "./shoes/List";
 import { SizeFilter } from "./Filters/SizeFilter/SizeFilter";
 import { CategoryFilter } from "./Filters/CategoryFilter/CategoryFilter";
+import { PriceRangeFilter } from "./Filters/PriceRangeFilter/PriceRangeFilter";
 
 function App() {
   const [shoes, setShoes] = useState([]);
-  const [filters, setFilters] = useState({ sizes: [], types: [] });
+  const [filters, setFilters] = useState({
+    sizes: [],
+    types: [],
+    priceMin: "",
+    priceMax: "",
+  });
 
   useEffect(() => {
     setShoes(getShoes(filters));
@@ -25,6 +31,13 @@ function App() {
           <CategoryFilter
             name="types"
             currentValues={filters.types}
+            onChange={handleChange}
+          />
+          <PriceRangeFilter
+            minName="priceMin"
+            maxName="priceMax"
+            minValue={filters.priceMin}
+            maxValue={filters.priceMax}
             onChange={handleChange}
           />
           <SizeFilter

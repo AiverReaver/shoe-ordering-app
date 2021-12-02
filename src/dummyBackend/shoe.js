@@ -50,7 +50,10 @@ export const getShoes = (filters = {}) => {
     typeFilter = true;
 
   const filtershoes = shoes.filter((shoe) => {
-    priceFilter = shoe.price > priceMin && shoe.price < priceMax;
+    priceFilter =
+      shoe.price > (priceMin || DEFAULT_FILTERS.priceMin) &&
+      shoe.price < (priceMax || DEFAULT_FILTERS.priceMax);
+
     if (sizes.length > 0) {
       sizeFilter = sizes.includes(shoe.size);
     }

@@ -18,7 +18,8 @@ export const SizeFilter = ({ name, currentValues = [], onChange }) => {
 
   return (
     <div>
-      <div>Size</div>
+      <strong>Size</strong>
+      <br />
       <div className={classes.container}>
         {shoeSizes.map((size) => (
           <div
