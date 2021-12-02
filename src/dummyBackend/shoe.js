@@ -36,11 +36,11 @@ const DEFAULT_FILTERS = {
   priceMin: 1,
   priceMax: Number.POSITIVE_INFINITY,
   sizes: [],
-  type: null,
+  types: [],
 };
 
 export const getShoes = (filters = {}) => {
-  const { priceMin, priceMax, sizes, type } = {
+  const { priceMin, priceMax, sizes, types } = {
     ...DEFAULT_FILTERS,
     ...filters,
   };
@@ -54,8 +54,8 @@ export const getShoes = (filters = {}) => {
     if (sizes.length > 0) {
       sizeFilter = sizes.includes(shoe.size);
     }
-    if (type) {
-      typeFilter = shoe.type === type;
+    if (types.length > 0) {
+      typeFilter = types.includes(shoe.type);
     }
     return priceFilter && sizeFilter && typeFilter;
   });

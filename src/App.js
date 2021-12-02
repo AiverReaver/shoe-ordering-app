@@ -3,10 +3,11 @@ import { useCallback, useEffect, useState } from "react";
 import { getShoes } from "./dummyBackend/shoe";
 import { List } from "./shoes/List";
 import { SizeFilter } from "./Filters/SizeFilter/SizeFilter";
+import { CategoryFilter } from "./Filters/CategoryFilter/CategoryFilter";
 
 function App() {
   const [shoes, setShoes] = useState([]);
-  const [filters, setFilters] = useState({ sizes: [] });
+  const [filters, setFilters] = useState({ sizes: [], types: [] });
 
   useEffect(() => {
     setShoes(getShoes(filters));
@@ -21,6 +22,11 @@ function App() {
       <strong>New Arriavals</strong>
       <div className="App">
         <div>
+          <CategoryFilter
+            name="types"
+            currentValues={filters.types}
+            onChange={handleChange}
+          />
           <SizeFilter
             currentValues={filters.sizes}
             name="sizes"
