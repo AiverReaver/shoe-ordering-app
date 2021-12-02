@@ -7,6 +7,8 @@ export const CategoryFilter = ({ name, currentValues = [], onChange }) => {
 
   return (
     <div>
+      <strong>Type</strong>
+      <br />
       {shoesTypes.map((type) => {
         const checked = currentValues.includes(type);
         return (
