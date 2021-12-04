@@ -1,0 +1,35 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Packages
+        run: npm install
+
+      - name: Build
+        env:
+          CI: ""
+        run: npm run build
+
+      - name: Deploy to Surge
+        uses: dswistowski/surge-sh-action@v1.0.0
+        with:
+          token: ${{ secrets.SURGE_KEY }}
+          domain: shoe-shop-app.surge.sh
+          project: build
